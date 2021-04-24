@@ -24,19 +24,19 @@
     </header>
     
     <!-- search form and results -->
-    <div class="container p-4 m-20">
+    <div class="container p-3 m-2">
         <div class="row">
             <!-- search form and recent searches -->
-            <div class="col-4 border">
+            <div class="col-4 bg-light m-0 p-4">
                 <h3>Search for a City</h3>
-                <div class="col-11 border p-3 m-2">
+                <div class="col-11 p-3 m-2">
                     <form>
                         <input type="text" class="form-control m-2" id="city-name-input" placeholder="City Name">
                         <button class="btn btn-dark m-2" id="search-btn" type="button">Search</button>
                     </form>
                 </div>
-                <div class="col-11 border p-3 m-2">
-                    <h4>Recent Searches</h2>
+                <div class="col-11 p-3 m-2">
+                    <h4 class="border-bottom">Recent Searches</h2>
                     <button class="btn btn-light col-11 m-1">Recent 2</button></br>
                     <button class="btn btn-light col-11 m-1">Recent 3</button></br>
                     <button class="btn btn-light col-11 m-1">Recent 1</button></br>
@@ -47,13 +47,14 @@
             <!-- results column -->
             <div class="col-8" id="results">
                 <!-- today's results -->
-                <div id="current-conditions" class="border p-4 m-4">
+                <div id="current-conditions" class="p-4 m-4">
                     <h3>Current Conditions</h3>
-                    <div id="conditions-container" class="border p-4 m-4">
+                    <div id="conditions-container" class="border rounded p-4 m-4">
                         <h2 id="today-title">City Name / Date</h2>
                         <img id="today-img" class="w-20" src="" alt="weather icon">
                         <ul id="today-ul">
                             <li id="today-temp">Temperature: </li>
+                            <li id="today-minmax">Temperature: </li>
                             <li id="today-wind">Wind Speed: </li>
                             <li id="today-humidity">Humidity: </li>
                             <li id="today-uv">UV Index: </li>

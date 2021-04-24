@@ -1,3 +1,7 @@
+// ADD FUNCTION FOR IF YOU HIT ENTER IN THE SEARCH FORM
+// ADD ERROR CATCHING FOR FETCH REQUESTS
+// ADD IF INPUT IS BLANK NO SEARCH
+
 var searchBtn = document.getElementById("search-btn");
 var currentConditions = document.getElementById("current-conditions");
 currentConditions.style.display = "none"; 
@@ -42,6 +46,7 @@ searchBtn.onclick = function(){
                     return response.json();
                 })
                 .then(function(response){
+                    console.log(response);
                     // forecast array
                     var forecast = [];
 
@@ -59,7 +64,6 @@ searchBtn.onclick = function(){
                         var nextDay = {
                             id: "thisDay-" + i,
                             iconURL: "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon +"@2x.png",
-                            currentTemp: response.daily[i].temp,
                             tempMax: response.daily[i].temp.max,
                             tempMin: response.daily[i].temp.min,
                             windSpeed: response.daily[i].wind_speed,
@@ -81,12 +85,23 @@ searchBtn.onclick = function(){
                     todayImg.src = forecast[0].iconURL;
 
                     var todayTemp = document.getElementById("today-temp");
-                    todayTemp.textContent = "Temperature (Min/Max): "
+                    todayTemp.textContent = "Current Temperature: " + response.current.temp + "\u00B0";
 
-                    // <li id="today-temp">Temperature: </li>
-                    //     <li id="today-wind">Wind Speed: </li>
-                    //     <li id="today-humidity">Humidity: </li>
-                    //     <li id="today-uv">UV Index: </li>
+                    var todayMinMax = document.getElementById("today-minmax");
+                    todayMinMax.textContent = "Min/Max: " + forecast[0].tempMin + "\u00B0" + " / " + forecast[0].tempMax + "\u00B0";
+
+                    var todayWind = document.getElementById("today-wind");
+                    todayWind.textContent = "Wind Speed: " + forecast[0].windSpeed + " mph";
+
+                    var todayHumidity = document.getElementById("today-humidity");
+                    todayHumidity.textContent = "Humidity: " + forecast[0].humidity;
+
+                    var todayUV = document.getElementById("today-uv");
+                    todayUV.textContent = "UV Index: " + forecast[0].uvIndex;
+
+                    // ADD IF STATEMENT TO ADD SUCCESS OR DANGER BG TO UV INDEX FOR HIGH AND LOW INDEX
+
+
                 })
         })
     }
