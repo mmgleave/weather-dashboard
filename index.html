@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="./assets/css/styles.css"> -->
+</head>
+
+<body>
+    <!-- header with title -->
+    <header class="border bg-dark text-light p-5">
+        <h1>Weather Dashboard</h1>
+    </header>
+    
+    <!-- search form and results -->
+    <div class="container p-4 m-20">
+        <div class="row">
+            <!-- search form and recent searches -->
+            <div class="col-4 border">
+                <h3>Search for a City</h3>
+                <div class="col-11 border p-3 m-2">
+                    <form>
+                        <input type="text" class="form-control m-2" id="city-name-input" placeholder="City Name">
+                        <button class="btn btn-dark m-2" id="search-btn" type="button">Search</button>
+                    </form>
+                </div>
+                <div class="col-11 border p-3 m-2">
+                    <h4>Recent Searches</h2>
+                    <button class="btn btn-light col-11 m-1">Recent 2</button></br>
+                    <button class="btn btn-light col-11 m-1">Recent 3</button></br>
+                    <button class="btn btn-light col-11 m-1">Recent 1</button></br>
+
+                </div>
+            </div>
+
+            <!-- results column -->
+            <div class="col-8" id="results">
+                <!-- today's results -->
+                <div id="current-conditions" class="border p-4 m-4">
+                    <h3>Current Conditions</h3>
+                    <div id="conditions-container" class="border p-4 m-4">
+                        <h2 id="today-title">City Name / Date</h2>
+                        <img id="today-img" class="w-20" src="" alt="weather icon">
+                        <ul id="today-ul">
+                            <li id="today-temp">Temperature: </li>
+                            <li id="today-wind">Wind Speed: </li>
+                            <li id="today-humidity">Humidity: </li>
+                            <li id="today-uv">UV Index: </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5-day forecast -->
+                <div id="five-day-container" class="border p-4 m-4">
+                    <h3>5-Day Forecast</h3>
+                    <div class="row border p-4 m-10">
+                        <div class="col-12 border p-4 m-10 bg-light">
+                            <h4 class="border-bottom">Tomorrow & Date</h4>
+                            <div>
+                                <p>Weather Icon</p>
+                                <p>Temperature: </p>
+                                <p>Wind Speed: </p>
+                                <p>Humidity: </p>
+                            </div>
+                        </div>
+    
+                        <div class="col-3 border p-4 m-10 bg-light">
+                            <h4 class="border-bottom">Date</h4>
+                            <div>
+                                <p>Weather Icon</p>
+                                <p>Temperature: </p>
+                                <p>Wind Speed: </p>
+                                <p>Humidity: </p>
+                            </div>
+                        </div>
+    
+                        <div class="col-3 border p-4 m-10 bg-light">
+                            <h4 class="border-bottom">Date</h4>
+                            <div>
+                                <p>Weather Icon</p>
+                                <p>Temperature: </p>
+                                <p>Wind Speed: </p>
+                                <p>Humidity: </p>
+                            </div>
+                        </div>
+    
+                        <div class="col-3 border p-4 m-10 bg-light">
+                            <h4 class="border-bottom">Date</h4>
+                            <div>
+                                <p>Weather Icon</p>
+                                <p>Temperature: </p>
+                                <p>Wind Speed: </p>
+                                <p>Humidity: </p>
+                            </div>
+                        </div>
+    
+                        <div class="col-3 border p-4 m-10 bg-light">
+                            <h4 class="border-bottom">Date</h4>
+                            <div>
+                                <p>Weather Icon</p>
+                                <p>Temperature: </p>
+                                <p>Wind Speed: </p>
+                                <p>Humidity: </p>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
