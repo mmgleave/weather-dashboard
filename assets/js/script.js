@@ -5,6 +5,8 @@
 var searchBtn = document.getElementById("search-btn");
 var currentConditions = document.getElementById("current-conditions");
 currentConditions.style.display = "none"; 
+var forecastContainer = document.getElementById("forecast-container");
+forecastContainer.style.display = "none";
 
 searchBtn.onclick = function(){
         // city input trimmed
@@ -51,13 +53,23 @@ searchBtn.onclick = function(){
                     var forecast = [];
 
                     // today
-                    var month = new Date();
-                    var newMonth = month.getMonth();
-                    var date = new Date();
-                    var newDate = date.getDate();
+                    var todaysDate = new Date();
+                    var newMonth = todaysDate.getMonth();
+                    var newDate = todaysDate.getDate();
+                    var currentWeekday = todaysDate.getDay();
 
                     // date combined into string
                     var monthAndDate = newMonth + "/" + newDate;
+
+                    var weekdays = [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wendesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                    ];
 
                     // objects to push to array for each day
                     for(i=0; i<6; i++){
@@ -72,14 +84,15 @@ searchBtn.onclick = function(){
                         };
 
                         forecast.push(nextDay);
-                        console.log(forecast)
                     };
                     
                     // update current condition elements to show result
                     currentConditions.style.display = "block";
+                    forecastContainer.style.display = "block";
 
                     var todayTitle = document.getElementById("today-title");
-                    todayTitle.textContent = searchedCity + "  (" + monthAndDate + ")";
+                    todayTitle.textContent = searchedCity + "  (Today " + monthAndDate + ")";
+                    todayTitle.className = "border-bottom";
 
                     var todayImg = document.getElementById("today-img");
                     todayImg.src = forecast[0].iconURL;
@@ -101,7 +114,52 @@ searchBtn.onclick = function(){
 
                     // ADD IF STATEMENT TO ADD SUCCESS OR DANGER BG TO UV INDEX FOR HIGH AND LOW INDEX
 
+                    // forecast container
+                    var fiveDayContainer = document.getElementById("five-day-container");
 
+                    for(i=1; i<6; i++){
+                        // update current weekday
+                        if(currentWeekday < 6){
+                            currentWeekday ++;
+                            console.log(currentWeekday)
+                        } else if (currentWeekday === 6){
+                            currentWeekday = 0;
+                            console.log(currentWeekday);
+                        }
+
+                        // tomorrow div
+                        var tomorrow = document.createElement("div");
+                        tomorrow.className = "text-center rounded m-2 p-2 bg-light fs-6";
+                        tomorrow.id = forecast[i].id;
+    
+                        // tomorrow title
+                        var tomorrowTitle = document.createElement("h4");
+                        tomorrowTitle.textContent = weekdays[currentWeekday];
+                        tomorrowTitle.className = "border-bottom";
+    
+                        // tomorrow icon
+                        var tomorrowIcon = document.createElement("img");
+                        tomorrowIcon.src = forecast[i].iconURL;
+                        tomorrowIcon.className = "rounded"
+    
+                        // tomorrow temp
+                        var tomorrowTemp = document.createElement("p");
+                        tomorrowTemp.textContent = "Min/Max: " + forecast[i].tempMin + "\u00B0" + " / " + forecast[1].tempMax + "\u00B0";
+    
+                        // tomorrow wind speed
+                        var tomorrowWind = document.createElement("p");
+                        tomorrowWind.textContent = "Wind Speed: " + forecast[i].windSpeed;
+    
+                        // tomorrow humidity
+                        var tomorrowHumidity = document.createElement("p");
+                        tomorrowHumidity.textContent = "Humidity: " + forecast[i].humidity;
+    
+                        // add each condition to div
+                        tomorrow.append(tomorrowIcon, tomorrowTitle, tomorrowTemp, tomorrowWind, tomorrowHumidity);
+    
+                        // add div to forecast
+                        fiveDayContainer.append(tomorrow);
+                    }
                 })
         })
     }

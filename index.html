@@ -24,98 +24,49 @@
     </header>
     
     <!-- search form and results -->
-    <div class="container p-3 m-2">
+    <div class="container-fluid m-4">
         <div class="row">
             <!-- search form and recent searches -->
-            <div class="col-4 bg-light m-0 p-4">
-                <h3>Search for a City</h3>
-                <div class="col-11 p-3 m-2">
+            <div class="col-4 text-info m-0 p-4">
+                <h3 class="border-bottom">Search for a City</h3>
+                <div class="p-3 m-2">
                     <form>
                         <input type="text" class="form-control m-2" id="city-name-input" placeholder="City Name">
                         <button class="btn btn-dark m-2" id="search-btn" type="button">Search</button>
                     </form>
                 </div>
-                <div class="col-11 p-3 m-2">
-                    <h4 class="border-bottom">Recent Searches</h2>
+                <div class="p-0 m-0">
+                    <h3 class="border-bottom">Recent Searches</h3>
                     <button class="btn btn-light col-11 m-1">Recent 2</button></br>
                     <button class="btn btn-light col-11 m-1">Recent 3</button></br>
                     <button class="btn btn-light col-11 m-1">Recent 1</button></br>
 
                 </div>
             </div>
-
+            
             <!-- results column -->
-            <div class="col-8" id="results">
+            <div class="col-8 m-0" id="results">
                 <!-- today's results -->
-                <div id="current-conditions" class="p-4 m-4">
-                    <h3>Current Conditions</h3>
-                    <div id="conditions-container" class="border rounded p-4 m-4">
+                <div id="current-conditions" class="p-0 m-4 bg-light">
+                    <div id="conditions-container" class="p-4 m-4">
                         <h2 id="today-title">City Name / Date</h2>
                         <img id="today-img" class="w-20" src="" alt="weather icon">
-                        <ul id="today-ul">
-                            <li id="today-temp">Temperature: </li>
-                            <li id="today-minmax">Temperature: </li>
-                            <li id="today-wind">Wind Speed: </li>
-                            <li id="today-humidity">Humidity: </li>
-                            <li id="today-uv">UV Index: </li>
+                        <div id="today-ul">
+                            <p id="today-temp">Temperature: </p>
+                            <p id="today-minmax">Temperature: </p>
+                            <p id="today-wind">Wind Speed: </p>
+                            <p id="today-humidity">Humidity: </p>
+                            <p id="today-uv">UV Index: </p>
                         </ul>
                     </div>
                 </div>
+            </div>
 
+            <div class="col-12">
                 <!-- 5-day forecast -->
-                <div id="five-day-container" class="border p-4 m-4">
+                <div id="forecast-container" class="align-center ontainer rounded bg-info p-4 m-0">
                     <h3>5-Day Forecast</h3>
-                    <div class="row border p-4 m-10">
-                        <div class="col-12 border p-4 m-10 bg-light">
-                            <h4 class="border-bottom">Tomorrow & Date</h4>
-                            <div>
-                                <p>Weather Icon</p>
-                                <p>Temperature: </p>
-                                <p>Wind Speed: </p>
-                                <p>Humidity: </p>
-                            </div>
-                        </div>
-    
-                        <div class="col-3 border p-4 m-10 bg-light">
-                            <h4 class="border-bottom">Date</h4>
-                            <div>
-                                <p>Weather Icon</p>
-                                <p>Temperature: </p>
-                                <p>Wind Speed: </p>
-                                <p>Humidity: </p>
-                            </div>
-                        </div>
-    
-                        <div class="col-3 border p-4 m-10 bg-light">
-                            <h4 class="border-bottom">Date</h4>
-                            <div>
-                                <p>Weather Icon</p>
-                                <p>Temperature: </p>
-                                <p>Wind Speed: </p>
-                                <p>Humidity: </p>
-                            </div>
-                        </div>
-    
-                        <div class="col-3 border p-4 m-10 bg-light">
-                            <h4 class="border-bottom">Date</h4>
-                            <div>
-                                <p>Weather Icon</p>
-                                <p>Temperature: </p>
-                                <p>Wind Speed: </p>
-                                <p>Humidity: </p>
-                            </div>
-                        </div>
-    
-                        <div class="col-3 border p-4 m-10 bg-light">
-                            <h4 class="border-bottom">Date</h4>
-                            <div>
-                                <p>Weather Icon</p>
-                                <p>Temperature: </p>
-                                <p>Wind Speed: </p>
-                                <p>Humidity: </p>
-                            </div>
-                        </div>
-    
+                    <div id="five-day-container" class="row">
                     </div>
                 </div>
             </div>
