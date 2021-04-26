@@ -21,10 +21,11 @@ searchBtn.onclick = function () {
     if (citySearch === "" || citySearch === null || citySearch == "N/A") {
         console.log("invalid input");
     } else {
-
         fetchAndSearch(citySearch);
     };
 };
+
+var recentSearchesDiv = document.getElementById("recent-searches");
 
 var fetchAndSearch = function (citySearch) {
     // fetch from open weather
@@ -38,13 +39,12 @@ var fetchAndSearch = function (citySearch) {
         .then(function (response) {
             // searched city name
             var searchedCity = response.name;
-            var recentSearchesDiv = document.getElementById("recent-searches");
+            
+            var newRecentItem = document.createElement("p");
+            newRecentItem.className = "recent";
+            newRecentItem.textContent = searchedCity;
+            recentSearchesDiv.append(newRecentItem);
 
-            var newRecentBtn = document.createElement("button");
-            newRecentBtn.className = "btn button-light col-11 recent-search-btn";
-            newRecentBtn.textContent = searchedCity;
-            recentSearchesDiv.append(newRecentBtn);
-    
             // lon for new search
             var lon = (response.coord.lon);
 
@@ -181,18 +181,3 @@ var fetchAndSearch = function (citySearch) {
                 })
         });
 };
-
-var recentBtn = document.getElementsByClassName("recent-search-btn");
-
-
-recentBtn.onclick = function(){
-    // city input trimmed
-    console.log($(this))
-    var cityName = $(this).value();
-
-    // resplace spaces with + for param
-    var citySearch = cityName.replace(/\s/g, "+");
-
-    // fetch and search
-    fetchAndSearch(citySearch);
-}
