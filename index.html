@@ -35,7 +35,7 @@
                         <button class="btn btn-dark m-2" id="search-btn" type="button">Search</button>
                     </form>
                 </div>
-                <div class="p-0 m-0">
+                <div id="recent-searches" class="p-0 m-0">
                     <h3 class="border-bottom">Recent Searches</h3>
                     <button class="btn btn-light col-11 m-1">Recent 2</button></br>
                     <button class="btn btn-light col-11 m-1">Recent 3</button></br>
@@ -51,12 +51,17 @@
                     <div id="conditions-container" class="p-4 m-4">
                         <h2 id="today-title">City Name / Date</h2>
                         <img id="today-img" class="w-20" src="" alt="weather icon">
-                        <div id="today-ul">
-                            <p id="today-temp">Temperature: </p>
-                            <p id="today-minmax">Temperature: </p>
-                            <p id="today-wind">Wind Speed: </p>
-                            <p id="today-humidity">Humidity: </p>
-                            <p id="today-uv">UV Index: </p>
+                        <div id="today-ul" class="row">
+                            <p class="col-4">Current Temperature: </p>
+                            <p class="col-8" id="today-temp"></p>
+                            <p class="col-4">Temperature (Min/Max): </p>
+                            <p class="col-8" id="today-minmax"></p>
+                            <p class="col-4">WindSpeed: </p>
+                            <p class="col-8" id="today-wind"></p>
+                            <p class="col-4">Humidity: </p>
+                            <p class="col-8"id="today-humidity"></p>
+                            <p class="col-4">UV Index: </p>
+                            <p class="col-8" id="today-uv"> </p>
                         </ul>
                     </div>
                 </div>
