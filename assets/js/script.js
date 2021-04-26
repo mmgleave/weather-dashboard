@@ -28,6 +28,9 @@ searchBtn.onclick = function () {
 var recentSearchesDiv = document.getElementById("recent-searches");
 
 var fetchAndSearch = function (citySearch) {
+    // forecast container
+    var fiveDayContainer = document.getElementById("five-day-container");
+    fiveDayContainer.innerHTML = "";
     // fetch from open weather
     fetch("http://api.openweathermap.org/data/2.5/weather?units=imperial&q=" +
         citySearch +
@@ -133,9 +136,6 @@ var fetchAndSearch = function (citySearch) {
                     } else if (forecast[0].uvIndex > 5) {
                         todayUV.className = "col-1 bg-danger"
                     };
-
-                    // forecast container
-                    var fiveDayContainer = document.getElementById("five-day-container");
 
                     for (i = 1; i < 6; i++) {
                         // update current weekday
